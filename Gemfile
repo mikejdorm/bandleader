@@ -1,15 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'bootstrap-sass', '2.0.0'
-
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
+gem 'bootstrap-sass'
 #gem 'sqlite3'
-gem 'mysql2', '2.0.0', require => 'mysql2'
+gem 'mysql2'
 gem 'paperclip'
 gem 'id3lib-ruby'
 gem 'mp4info'
