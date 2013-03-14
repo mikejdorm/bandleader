@@ -7,19 +7,22 @@ gem 'bootstrap-sass', '2.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-# gem 'pg'
-gem 'soundcloud'
+group :development, :test do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+end
+
 gem 'paperclip'
 gem 'id3lib-ruby'
-#gem 'aws-s3', :require => 'aws/s3'
 gem 'mp4info'
 gem  'mp3info'
 gem 'aws-sdk'
 gem 'ftools'	
 gem 'lastfm'
 gem "remotipart", "~> 1.0.5"
-
+gem "heroku"
 gem 'client_side_validations'
 # Gems used only for assets and not required
 # in production environments by default.
