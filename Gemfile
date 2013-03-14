@@ -8,8 +8,8 @@ gem 'bootstrap-sass', '2.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-gem 'sqlite3'
-gem 'mysql2'
+#gem 'sqlite3'
+gem 'mysql2', '2.0.0', require => 'mysql2'
 gem 'paperclip'
 gem 'id3lib-ruby'
 gem 'mp4info'
