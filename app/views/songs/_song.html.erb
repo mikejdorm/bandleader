@@ -1,0 +1,22 @@
+<li class="song_cell" id="<%= song.id %>" >	
+		<a href="/songs/<%=song.id %>" data-remote="true">
+		<img class="panel-main-image" src="<%=song.info['image'][1]["content"]%>" style="float: left; height: 50px;">
+		<span class="entry-list-title">
+		<span class="entry-list-title-inner"><%="#{song.artist} - #{song.title}"%>
+		</span>
+		</a>		
+		<span class="entry-comments-national">
+			<div class="vote_box">
+				<div id="vote_count" > 
+					<%= "(#{song.votes.count})" %> 
+				</div>
+				<%= form_for Vote.new, :remote => true, :id => 'vote-form' do |f| %>
+				<%= f.hidden_field "song_id", :value => song.id %>
+				<%= f.hidden_field "user_id", :value => session[:user_id] %>	
+				<%= f.hidden_field "station_id", :value => song.station_id %> 
+				<%= image_submit_tag("glyphicons_343_thumbs_up.png",  :id => 'submit_vote') %>
+				<% end %> 
+			</div> 
+		</span>
+		
+</li>

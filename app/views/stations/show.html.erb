@@ -1,0 +1,66 @@
+<script type="text/javascript">
+  
+    $(document).ready(function(){
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function() {
+          $(this).jPlayer("setMedia", {
+            <% if @first_play.present? %>
+            	mp3: "<%= @first_play.link %>"
+            <% elsif @first_play == nil && @station.songs.present? %> 
+            <% @first_play = @station.songs.first %> 
+                mp3: "<%= @first_play.link %>"
+            <% end %>
+          }).jPlayer("play");
+          var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
+          var kickoff = function () {
+            $("#jquery_jplayer_1").jPlayer("play");
+            document.documentElement.removeEventListener(click, kickoff, true);
+          };
+          document.documentElement.addEventListener(click, kickoff, true);
+        },
+        swfPath: "/js",
+        supplied: "mp3, m4a",
+   		volume: 1,
+   		 wmode:"window",
+   		 solution: "html,flash",
+        ended : function(){
+        	$('form.edit_song').submit();
+      		}
+      });
+    });
+  </script>
+<div class="container-fluid">  
+<div class="row-fluid" >
+		<h1 style="
+			color: black;
+			min-width: 10px;
+			position: relative;
+			right: 100%;
+			top: -750px;
+			transform: rotate(-90deg);
+			transform-origin: right top 0;
+			white-space: nowrap;
+		}">
+			<%= @station.user.username %>
+		</h1>
+  <div class="span12">
+  				<h1 style="color:red; font-weight: 900; font-size: 26px; font-variant: small-caps;"><%= @station.event_name %> </h1>	
+	<div class="row">	
+		<div class="span12" id="hub_detail">  
+				<div class="row"> 	
+							<div class="span4" id="hub_det"  style=" border-left: solid; border-width: 5px;" >
+								<%= render :partial => 'now_playing', :locals => {:station => @station, :now_playing => @first_play} %>
+							</div>
+							<div class="span4" id="song_queue">  
+								<%= render partial: "queue", object: @station %>
+							</div>
+							<div class="span3">  
+								<%= render :partial => 'message_board', object: @station %> 
+							</div>
+				</div>
+		</div>
+	</div>
+	</div>
+	</div>
+</div>
+<div id="jquery_jplayer_1" class="jp-jplayer"></div>

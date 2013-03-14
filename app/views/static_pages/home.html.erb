@@ -1,0 +1,28 @@
+<% provide(:title, 'Contract') %> 
+<div class="center hero-unit">
+		<div id="front-main">
+		
+		  <h1>Welcome to bandleader</h1>
+		  <h2>
+		    Share, create, and collaborate on music playlists with friend.
+		  </h2>
+		  <!--<%= link_to "Sign up!", signup_path, class: "btn btn-large btn-primary" %>-->
+		</div>
+		<div id="front-side-bar">
+		<%= form_tag sessions_path, :class => "front-signin" do %>
+			<%=   text_field_tag :username, params[:username] , "size" => 20 , :placeholder => "username"  %>
+			<%=  password_field_tag :password, params[:password], "size" => 20, :placeholder => "password" %>
+		  <%= submit_tag 'sign in', class: "btn btn-large btn-primary"%>
+		<% end %>
+		<%= form_tag "/signup", :class => "front-signup" do %>
+			<%= text_field "person", "name", "size" => 20 , :placeholder => "username" %>
+			<%= text_field "person", "name", "size" => 20 , :placeholder =>  "email" %>
+		  <%= text_field "person", "name", "size" => 20 , :placeholder => "password" %>
+		  <%= submit_tag 'Sign up for bandleader', class: "btn btn-large btn-primary"%>
+		<% end %>
+		</div>
+	
+</div>
+	<div id="front-bottom">
+		 
+		  </div>

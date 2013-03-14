@@ -1,0 +1,7 @@
+<%= form_for( @post, :remote => true) do |f| %>
+  <%= f.hidden_field :station_id, :value => @station.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id	 %>
+  <p>	
+    <%= f.text_field :content, :size => 150 %>
+  </p>
+<% end %>

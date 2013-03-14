@@ -1,0 +1,26 @@
+<% if station.songs.present? && now_playing == nil %> 
+<% now_playing = station.songs.first %> 
+<% end %> 
+<% if station.songs.present? %>
+		   <div class="thumbnail">
+				<img src=<%= now_playing.info['image'][3]["content"]%>>
+				<h3><%="#{now_playing.artist} - #{now_playing.title}" %> </h3>
+		   </div>
+				<i class="icon-music"></i>	
+						Songs (<%= station.songs.count %>)
+				<i class="icon-user"></i>
+						Users (<%= station.connections.count %>)	
+		<%= render partial: "stations/upload", :locals => { :station  => station } %>
+			<%= link_to 'Upload', '#', :onclick => '$("#upload_modal").show();', :class => "btn btn-primary" %>	
+			<%= link_to 'Exit', stations_path, :class => "btn btn-primary" %> 
+ 		<%= form_for now_playing, :method => :delete do  %>  
+ 			<%= hidden_field_tag "station_id", station.id %>
+		<% end %>
+<% else %>
+					<i class="icon-music" id="song_count" ></i>	
+						Songs (<%= station.songs.count %>)
+					<i class="icon-user"></i>
+						Users (<%= station.connections.count %>)	
+		<%= render partial: "stations/upload", :locals => { :station  => station }  %>
+			<%= link_to 'Upload', '#', :onclick => '$("#upload_modal").show();' %>
+<% end %> 

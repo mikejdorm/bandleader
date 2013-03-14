@@ -1,0 +1,5 @@
+<li class="post" data-time="<%= post.post_time.to_i %>">
+  <strong><%= link_to post.user.username, User.find_by_id(post.user_id) %></strong>
+  <em>on <%= post.post_time %></em>
+  <%= simple_format post.content %>
+</li>

@@ -1,0 +1,9 @@
+<%= form_for @connection do |f| %>
+  <%= f.hidden_field :station_id, :value => station.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+	<% if station.songs.count > 0  %>
+			<%= image_submit_tag(station.songs.first.info['image'][1]['content'], :class => 'media-object') %>
+	<% else %>
+			<%= image_submit_tag('no_art.png', :class => 'media-object') %>
+	<% end %>
+<% end %>

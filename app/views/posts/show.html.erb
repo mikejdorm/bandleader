@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Station:</b>
+  <%= @post.station_id %>
+</p>
+
+<p>
+  <b>Post time:</b>
+  <%= @post.post_time %>
+</p>
+
+<p>
+  <b>Datetime:</b>
+  <%= @post.datetime %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @post.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

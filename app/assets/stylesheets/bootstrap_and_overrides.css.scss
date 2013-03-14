@@ -1,0 +1,449 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+/* mixins, variables, etc. */
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  	padding-top: 60px;
+	/*background: url('gimme-shelter-cubism3.jpg');*/
+	/* background: url('milesdavis.png'); */
+    background-repeat:no-repeat;
+    background-size: 1400px 1000px;
+}
+
+.homepage{
+	background: url('milesdavis.png');
+	/*background: url('gimme-shelter-cubism3.jpg');*/
+}
+/*
+.container{
+	opacity: 0.5;
+}	
+*/
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: none;
+}
+
+.center {
+  text-align: center;
+  background: transparent;
+  height: 475px;
+  vertical-align: 50%;
+  width: 950px;
+  h1 {
+    margin-bottom: 5px;
+    font-size: 2em;
+       margin-top: 100px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+ text-align: left;
+      color: #FFFFFF;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 3px;
+
+}
+
+h2 {
+   color: #EEEEEE;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: left;
+    text-shadow: 0 1px 2px #000000;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid $grayMediumLight;
+  color: $grayLight;
+  a {
+    color: $gray;
+    &:hover { 
+      color: $grayDarker;
+    }
+  }  
+  small { 
+    float: left; 
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+.front-signin, .front-signup {
+    /*background: -moz-linear-gradient(center top , #FFFFFF 0px, #DDDDDD 100%) repeat scroll 0 0 transparent;*/
+    background: -moz-linear-gradient(center top , #FFFFFF 0px, #DDDDDD 100%) repeat scroll 0 0;
+    background: -webkit-linear-gradient(top,#fff 0,#ddd 100%);
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.front-welcome, .front-signin, .front-signup {
+    border-radius: 4px 4px 4px 4px;
+}
+.front-signin {
+    left: 536px;
+    padding-top: 20px;
+    top: 121px;
+}
+
+.front-signup {
+    left: 536px;
+    top: 121px;
+    padding-top: 20px;
+}
+
+.front-signup h2, .front-signin h2 {
+    border-bottom: 1px solid #E2E2E2;
+    box-shadow: 0 1px 0 #FFFFFF;
+    color: #777777;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+#front-main{
+float:left;
+width:500px;
+}
+#front-side-bar{
+float:right;
+width:250px;
+}
+
+.main_nav{
+ width: 600px;
+ length: 600px;
+}
+
+.main_nav h2{
+   color: #EEEEEE;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    text-align: left;
+    text-shadow: 0 1px 2px #000000;
+  }
+  
+.main_nav ul{
+	list-style: none;
+}
+.main_nav li{
+	list-style: none;
+}
+
+#hub_detail{
+   min-height: 400px;
+   background-color:  #F5F5F5;
+   opacity: 0.7;
+   width: 80%px;
+       border-top: solid; 
+    border-width: 5px;
+}
+
+
+
+.cp-container {
+	position:relative;
+	width:104px; /* 200 - (2 * 48) */
+	height:104px;
+	background:url("bgr.jpg") 0 0 no-repeat;
+	padding:48px;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.cp-container :focus {
+	border:none;
+	outline:0;
+}
+
+.cp-buffer-1,
+.cp-buffer-2,
+.cp-progress-1,
+.cp-progress-2 {
+	position:absolute;
+	top:0;
+	left:0;
+	width:104px;
+	height:104px;
+	clip:rect(0px,52px,104px,0px);
+
+	-moz-border-radius:52px;
+	-webkit-border-radius:52px;
+	border-radius:52px;
+}
+
+.cp-buffer-1,
+.cp-buffer-2 {
+	background:url("buffer.png") 0 0 no-repeat;
+}
+
+
+/* FALLBACK for .progress
+ * (24 steps starting from 1hr filled progress, Decrease second value by 104px for next step)
+ * (It needs the container selector to work. Or use div)
+ */
+
+.cp-container .cp-fallback {
+	background:url("progress_sprite.jpg") no-repeat;
+	background-position:0 104px; 
+}
+
+.cp-progress-1,
+.cp-progress-2 {
+	background:url("progress.png") 0 0 no-repeat;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder,
+.cp-circle-control {
+	position:absolute;
+	width:104px;
+	height:104px;
+} 
+
+.cp-circle-control {
+	cursor:pointer;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder {
+	clip:rect(0px,104px,104px,52px);
+	display:none;
+}
+
+
+/* This is needed when progress is greater than 50% or for fallback */
+
+.cp-buffer-holder.cp-gt50,
+.cp-progress-holder.cp-gt50,
+.cp-progress-1.cp-fallback{
+	clip:rect(auto, auto, auto, auto);
+}
+
+.cp-controls {
+	margin:0;
+	padding:26px;
+}
+
+.cp-controls li{
+	list-style-type:none;
+	display:block;
+
+	/*IE Fix*/
+	position:absolute;
+}
+
+.cp-controls li a{
+	position:relative;
+	display:block;
+	width:50px;
+	height:50px;
+	text-indent:-9999px;
+	z-index:1;
+	cursor:pointer;
+}
+
+.cp-controls .cp-play {
+	background:url("controls.jpg") 0 0 no-repeat;
+}
+
+.cp-controls .cp-play:hover {
+	background:url("controls.jpg") -50px 0 no-repeat;
+}
+
+.cp-controls .cp-pause {
+	background:url("controls.jpg") 0 -50px no-repeat;
+}
+
+.cp-controls .cp-pause:hover {
+	background:url("controls.jpg") -50px -50px no-repeat;
+}
+
+.cp-jplayer {
+	width:0;
+	height:0;	
+}
+
+#song_queue{
+   border-left: 1px solid;
+    border-right: 1px solid;
+    padding-right: 5px;
+    padding-top: 3px;
+    width: 326px;
+}
+   
+.song_cell{
+ background-color: white;
+    border-color: #71717E;
+      border-width: 2px;
+      border-style: solid;
+    font-size: 11px;
+    line-height: 1.1;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    overflow: hidden;
+    padding: 2px;
+    position: relative;
+    text-decoration: none;
+    width: 280px;
+  -webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+   border-width: thin;
+}
+
+.song_cell:hover{
+  border-width: 2px;
+    border-style: solid;
+	border-color:  #98BF21;
+	text-decoration: none;
+}
+
+.song_cell:hover a{
+	text-decoration: none;
+}
+
+#message_board{
+
+   padding-top: 6px;
+   
+   }
+/*
+.song_cell img{
+	width: 70%;
+}	
+.song_cell input {
+    width: 6%;
+}
+*/
+.post{
+background-color: white;
+  -webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.post p{
+ font-size: 11px;
+
+}
+
+.post em{
+ font-size: 10px;
+}
+
+
+/*
+#hub_cell{
+    border-color: #71717E;
+    border-style: solid;
+	background-color: white;
+  -webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+	display: inline block;
+	   height: 25px;
+    width: 400px;
+}
+
+#hub_cell form{
+	float: left;
+	 margin-right: 20px;
+}
+#hub_cell div{
+	float: left;
+}
+#new_connection{
+	line-height: 1; 
+}*/		
+
+
+.new_connection input{
+	height: 50px;
+	width: 50px;
+	margin-right: 10px;
+}
+
+#station_cell{
+	height: 65px;
+	margin-top: 9px;
+}
+
+#submit_vote{
+	height: 14px;
+}
+
+#vote_count{
+	 float: left;
+    margin-right: 4px;
+}
+
+#vote-form{
+float: right;
+}
+
+.vote_box{
+	 float: right;
+    height: 25px;
+    margin-top: 13px;
+    width: 45px;
+}

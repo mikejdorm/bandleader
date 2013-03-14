@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+	<div class="span4"> 
+			<img src="<%=@user.avatar.url%>" class="img-polaroid">
+	</div>
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+
+<h3>Activity</h3> 
+<% @activity.each do |element| %> 
+	<%= render :partial => element[:class].class.name.downcase!, :object => element[:class] %> 
+<% end %> 
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

@@ -1,0 +1,21 @@
+<%= form_for(@station) do |f| %>
+  <% if @station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station.errors.count, "error") %> prohibited this station from being saved:</h2>
+
+      <ul>
+      <% @station.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.text_field :event_name, :placeholder => "Event Name" %>
+    </p>
+    <p>
+    <%= f.text_field :event_location, :placeholder => "Event Location" %>
+    </p>
+  	<%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit :class => "btn btn-primary" %>
+<% end %>

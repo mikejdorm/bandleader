@@ -1,0 +1,23 @@
+<div class="container">  
+		<div class="row-fluid">
+			 <div class="span12">	
+			 	    <div class="row-fluid">
+					<div class="span4">
+						<h1 style="color:black;">Choose a station</h1>
+						<ul id="station_list" > 
+								<%= render partial: "station", collection: @stations %>
+						</ul> 
+					</div>
+					<div class="span4">
+						<h1 style="color:black; margin-top: 100px; font-size: 40px;"> OR </h1>
+					</div>
+					<div class="span4">
+					<p>
+					<h1 style="color:black;"> Create your own </h1>
+					</p>
+						<%= render partial: 'form', :object => @station %>
+					</div>
+					</div>
+				</div>
+		</div>
+</div>

@@ -1,0 +1,6 @@
+<%= remotipart_response do %>
+<% song = @song %>
+$("#upload_modal").hide();
+$("#song_count").html('(<%= @station.songs.count %>)');
+$("ul#playlist").append("<%= j(render partial: 'song', :object => song) %>");	
+<% end %>

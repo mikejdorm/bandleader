@@ -1,0 +1,4 @@
+<%= render partial: "posts/form", object: @station %> 
+<ul id="message_board" > 
+		<%= render partial: "posts/post", collection: @station.posts %>
+</ul> 

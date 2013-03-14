@@ -1,0 +1,17 @@
+<li class="media" id="station_cell"> 
+		<div class ="pull-left" >
+			<%=  render :partial => 'connections/form', :locals => { :station => station } %>
+		</div>
+    	<div class="media-body">
+    		<h4 class="media-heading">
+    			<%= station.event_name %>
+    		</h4>
+    			<i class="icon-music">
+    			</i>	
+						Songs (<%= station.songs.count %>)
+				<i class="icon-user">
+				</i>
+						Users (<%= station.connections.count %>)	
+    	</div>
+</li> 
+
