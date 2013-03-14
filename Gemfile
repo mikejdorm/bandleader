@@ -7,13 +7,9 @@ gem 'bootstrap-sass', '2.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'pg'
-end
 
+gem 'sqlite3'
+gem 'mysql2'
 gem 'paperclip'
 gem 'id3lib-ruby'
 gem 'mp4info'
