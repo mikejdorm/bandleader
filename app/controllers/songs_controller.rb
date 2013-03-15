@@ -43,12 +43,20 @@ class SongsController < ApplicationController
     @song = Song.new
     puts "creating song using #{params[:mp3file]}"
     @station = Station.find_by_id(params['station_id'])
+    puts "station is set as #{@station}"
+    puts "now opening last fm api" 
 	lastfm = Lastfm.new('7a3265c5d611cb7a75c65d269593cd93', '16173be5d466e200dcda3ff71b69322b')
+	puts "last fm api set.now parsing song" 
 	@song.parse_tags(params[:mp3file].original_filename, params[:mp3file].tempfile)
+	puts "song parsed" 
 	obj = @song.create_s3object(params[:mp3file])
+	puts "song is now set as #{@song}"
 	@song.create_url(obj)
+	puts "url creating for song" 
 	@song.station_id = params['station_id']
+	puts "station id set. now making call to last fm" 
 	@song.info = lastfm.album.get_info(:artist => @song.artist, :album => @song.album)
+	puts "album info is now set" 
 	if @song.info['image'][1]["content"] == nil
 		@song.info = lastfm.artist.get_info(:artist => @song.artist)
 	end
