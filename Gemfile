@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
-#gem 'sqlite3'
+gem 'sqlite3'
 gem 'mysql2'
 gem 'paperclip'
 gem 'mp4info'
@@ -10,9 +10,10 @@ gem  'mp3info'
 gem 'aws-sdk'
 gem 'ftools'	
 gem 'lastfm'
-gem "remotipart", "~> 1.0.5"
+# gem "remotipart", "~> 1.0.5"
 gem "heroku"
-gem 'client_side_validations'
+
+# gem 'client_side_validations'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
