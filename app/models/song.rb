@@ -8,9 +8,10 @@ class Song < ActiveRecord::Base
     has_many :votes
     default_scope :order => "votes_count DESC, created_at DESC"
   
-  
-  
  def parse_tags(orig_filename, tempfile)	
+ begin
+ 	puts "the original file is: #{orig_filename}"
+ 	puts " the temp file is #{tempfile}"
   	ext =  File.extname(orig_filename)
   	puts "This is the extension #{ext}"
   	case ext
@@ -22,6 +23,8 @@ class Song < ActiveRecord::Base
   			parse_flv(tempfile)
   		when ".ogg", ".oga"
   			parse_ogg(tempfile)
+  	end
+  	rescue
   	end
   end
 
