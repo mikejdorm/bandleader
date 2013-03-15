@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315171137) do
+ActiveRecord::Schema.define(:version => 20130315195656) do
 
   create_table "connections", :force => true do |t|
     t.integer  "station_id"
@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(:version => 20130315171137) do
     t.integer  "station_id"
     t.integer  "song_id"
     t.integer  "user_id"
-    t.datetime "vote_time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

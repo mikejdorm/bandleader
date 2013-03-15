@@ -1,2 +1,3 @@
 <h3> Connected to: </h3> 
-<h3> Station.find_by_id(connection.id) %> </h3> 
+<% station = Station.find_by_id(connection.station_id) %> 
+<h3> Connected to:  <%= link_to station.event_name, station%> at <%= connection.created_at %> </h3> 

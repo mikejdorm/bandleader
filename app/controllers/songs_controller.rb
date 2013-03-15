@@ -41,21 +41,12 @@ class SongsController < ApplicationController
   def upload
   begin
     @song = Song.new
-    puts "creating song using #{params[:mp3file]}"
     @station = Station.find_by_id(params['station_id'])
-    puts "station is set as #{@station}"
-    puts "now opening last fm api" 
 	lastfm = Lastfm.new('7a3265c5d611cb7a75c65d269593cd93', '16173be5d466e200dcda3ff71b69322b')
-	puts "last fm api set.now parsing song" 
-	puts "song parsed using #{params[:mp3file].original_filename} and #{params[:mp3file].tempfile}"
 	@song.parse_tags(params[:mp3file].original_filename, params[:mp3file].tempfile)
-	puts "song parsed" 
 	obj = @song.create_s3object(params[:mp3file])
-	puts "song is now set as #{@song}"
 	@song.create_url(obj)
-	puts "url creating for song" 
 	@song.station_id = params['station_id']
-	puts "station id set. now making call to last fm" 
 	info = lastfm.album.get_info(:artist => @song.artist, :album => @song.album)
 	if info['image'][1]["content"] == nil
 		info = lastfm.artist.get_info(:artist => @song.artist)
@@ -83,24 +74,6 @@ class SongsController < ApplicationController
       		end
       else 
       	render :js => "window.location.href = '#{@station.id}'"
-      end
-    end
-  end
-
-
-
-  # PUT /songs/1
-  # PUT /songs/1.json
-  def update
-    @song = Song.find(params[:id])
-
-    respond_to do |format|
-      if @song.update_attributes(params[:song])
-        format.html { redirect_to @song, notice: 'Song was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @song.errors, status: :unprocessable_entity }
       end
     end
   end
