@@ -53,7 +53,7 @@ class SongsController < ApplicationController
 	@song.link = @song.create_url(obj)
     respond_to do |format|
       if @song.save
-      	    format.html
+      	    #format.html
       	    if @station.songs.count == 1
       	    	format.js { render :js => "window.location.href = '#{@station.id}'" }
       	    else
