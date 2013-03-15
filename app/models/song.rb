@@ -1,5 +1,4 @@
 require 'aws-sdk'
-require 'id3lib'
 require 'mp4info'
 require "mp3info"
 class Song < ActiveRecord::Base
