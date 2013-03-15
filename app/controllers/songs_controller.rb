@@ -61,14 +61,13 @@ class SongsController < ApplicationController
 	if @song.info['image'][1]["content"] == nil
 		@song.info = lastfm.artist.get_info(:artist => @song.artist)
 	end
-	 	  format.js { render :js => "window.location.href = '#{@station.id}'" }
 	rescue Exception => e
 		puts "Errror encountered: #{e}"
 	end
 	@song.link = @song.create_url(obj)
     respond_to do |format|
       if @song.save
-      	    #format.html
+      	    format.html
       	    if @station.songs.count == 1
       	    	format.js { render :js => "window.location.href = '#{@station.id}'" }
       	    else
