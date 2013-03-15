@@ -39,7 +39,9 @@ class SongsController < ApplicationController
   end
   
   def upload
+  begin
     @song = Song.new
+    puts "creating song using #{params[:mp3file]}"
     @station = Station.find_by_id(params['station_id'])
 	lastfm = Lastfm.new('7a3265c5d611cb7a75c65d269593cd93', '16173be5d466e200dcda3ff71b69322b')
 	@song.parse_tags(params[:mp3file].original_filename, params[:mp3file].tempfile)
@@ -50,6 +52,9 @@ class SongsController < ApplicationController
 	if @song.info['image'][1]["content"] == nil
 		@song.info = lastfm.artist.get_info(:artist => @song.artist)
 	end
+	 	  format.js { render :js => "window.location.href = '#{@station.id}'" }
+	rescue
+	end
 	@song.link = @song.create_url(obj)
     respond_to do |format|
       if @song.save
@@ -59,6 +64,8 @@ class SongsController < ApplicationController
       	    else
       			format.js 
       		end
+      else 
+      	render :js => "window.location.href = '#{@station.id}'"
       end
     end
   end
