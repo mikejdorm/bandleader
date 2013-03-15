@@ -47,6 +47,7 @@ class SongsController < ApplicationController
     puts "now opening last fm api" 
 	lastfm = Lastfm.new('7a3265c5d611cb7a75c65d269593cd93', '16173be5d466e200dcda3ff71b69322b')
 	puts "last fm api set.now parsing song" 
+	puts "song parsed using #{params[:mp3file].original_filename} and #{params[:mp3file].tempfile}"
 	@song.parse_tags(params[:mp3file].original_filename, params[:mp3file].tempfile)
 	puts "song parsed" 
 	obj = @song.create_s3object(params[:mp3file])
@@ -61,7 +62,8 @@ class SongsController < ApplicationController
 		@song.info = lastfm.artist.get_info(:artist => @song.artist)
 	end
 	 	  format.js { render :js => "window.location.href = '#{@station.id}'" }
-	rescue
+	rescue Exception => e
+		puts "Errror encountered: #{e}"
 	end
 	@song.link = @song.create_url(obj)
     respond_to do |format|

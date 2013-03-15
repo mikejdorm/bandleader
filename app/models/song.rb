@@ -14,16 +14,16 @@ class Song < ActiveRecord::Base
  	puts " the temp file is #{tempfile}"
   	ext =  File.extname(orig_filename)
   	puts "This is the extension #{ext}"
-  	case ext
-  		when '.mp3'
-  			parse_mp3(tempfile)
-  		when ".mp4", ".m4a"
-  			parse_mp4(tempfile)
-  		when ".flv"
-  			parse_flv(tempfile)
-  		when ".ogg", ".oga"
-  			parse_ogg(tempfile)
-  	end
+		case ext
+			when '.mp3'
+				parse_mp3(tempfile)
+			when ".mp4", ".m4a"
+				parse_mp4(tempfile)
+			when ".flv"
+				parse_flv(tempfile)
+			when ".ogg", ".oga"
+				parse_ogg(tempfile)
+		end
   	rescue
   	end
   end

@@ -10,7 +10,7 @@ gem  'mp3info'
 gem 'aws-sdk'
 gem 'ftools'	
 gem 'lastfm'
-# gem "remotipart", "~> 1.0.5"
+gem "remotipart"
 gem "heroku"
 
 # gem 'client_side_validations'
