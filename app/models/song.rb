@@ -1,9 +1,9 @@
 require 'aws-sdk'
 require 'mp4info'
 require "mp3info"
+
 class Song < ActiveRecord::Base
-  attr_accessible :album, :artist, :info, :link, :title, :broadcast_time
-    serialize :info, JSON
+  attr_accessible :album, :artist, :info, :link, :title, :broadcast_time,  :small_img_url, :large_img_url,  :album_release
     belongs_to :station
     has_many :votes
     default_scope :order => "votes_count DESC, created_at DESC"

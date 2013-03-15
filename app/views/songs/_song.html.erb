@@ -1,6 +1,6 @@
 <li class="song_cell" id="<%= song.id %>" >	
 		<a href="/songs/<%=song.id %>" data-remote="true">
-		<img class="panel-main-image" src="<%=song.info['image'][1]["content"]%>" style="float: left; height: 50px;">
+		<img class="panel-main-image" src="<%=song.small_img_url %>" style="float: left; height: 50px;">
 		<span class="entry-list-title">
 		<span class="entry-list-title-inner"><%="#{song.artist} - #{song.title}"%>
 		</span>

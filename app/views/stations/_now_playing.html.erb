@@ -3,7 +3,7 @@
 <% end %> 
 <% if station.songs.present? %>
 		   <div class="thumbnail">
-				<img src=<%= now_playing.info['image'][3]["content"]%>>
+				<img src=<%= now_playing.large_img_url %>>
 				<h3><%="#{now_playing.artist} - #{now_playing.title}" %> </h3>
 		   </div>
 				<i class="icon-music"></i>	

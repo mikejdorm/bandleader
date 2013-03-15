@@ -56,10 +56,18 @@ class SongsController < ApplicationController
 	puts "url creating for song" 
 	@song.station_id = params['station_id']
 	puts "station id set. now making call to last fm" 
-	@song.info = lastfm.album.get_info(:artist => @song.artist, :album => @song.album)
-	puts "album info is now set" 
-	if @song.info['image'][1]["content"] == nil
-		@song.info = lastfm.artist.get_info(:artist => @song.artist)
+	info = lastfm.album.get_info(:artist => @song.artist, :album => @song.album)
+	if info['image'][1]["content"] == nil
+		info = lastfm.artist.get_info(:artist => @song.artist)
+	end
+	if(info['image'][1]["content"] != nil)
+		@song.small_img_url = info['image'][1]["content"]
+	end
+	if(info['image'][3]["content"] != nil)
+		@song.large_img_url = info['image'][3]["content"]
+	end
+	if(info['releasedate'] != nil)
+		#@song.album_release = info['releasedate'] 
 	end
 	rescue Exception => e
 		puts "Errror encountered: #{e}"

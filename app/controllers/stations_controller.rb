@@ -19,7 +19,7 @@ class StationsController < ApplicationController
     @now_playing = @station.songs.all(:conditions => 'broadcast_time IS NOT NULL',  :order => 'broadcast_time ASC').first
     if(@now_playing == nil && @station.songs.count >= 1)
     	@songs.first.broadcast_time = Time.now
-    	@songs.first.save
+    	@songs	.first.save
         @now_playing = @station.songs.all(:conditions => 'broadcast_time IS NOT NULL',  :order => 'broadcast_time ASC').first
     end
         puts("now playing on #{@station.event_name} is #{@now_playing.inspect}")

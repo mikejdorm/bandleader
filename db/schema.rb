@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314181746) do
+ActiveRecord::Schema.define(:version => 20130315171137) do
 
   create_table "connections", :force => true do |t|
     t.integer  "station_id"
@@ -37,12 +37,15 @@ ActiveRecord::Schema.define(:version => 20130314181746) do
     t.string   "album"
     t.string   "link"
     t.string   "info"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.integer  "station_id",     :default => 0
     t.integer  "user_id",        :default => 0
     t.integer  "votes_count",    :default => 0
     t.datetime "broadcast_time"
+    t.string   "small_img_url",  :default => "no_art.png"
+    t.string   "large_img_url",  :default => "no_art.png"
+    t.datetime "album_release"
   end
 
   create_table "stations", :force => true do |t|
