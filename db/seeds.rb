@@ -19,8 +19,33 @@ end
   			password: 'password',
   			password_confirmation: 'password'
   
+    User.create username: 'mdorman',
+ 			 email: 'mdorman@uchicago.edu',
+  			password: 'password',
+  			password_confirmation: 'password'
+  
+    Station.create date_created: Time.zone.now , 
+  			     event_location: 'Chicago', 
+  			     event_name: 'Uchicago Station', 
+  			     user_id: User.last.id
+  
   Station.create date_created: Time.zone.now , 
   			     event_location: 'Chicago', 
-  			     event_name: 'Global station', 
+  			     event_name: 'Bandleader Global', 
+  			     user_id: User.first.id
+  
+    Station.create date_created: Time.zone.now , 
+  			     event_location: 'Chicago', 
+  			     event_name: 'My New Station', 
+  			     user_id: User.last.id
+
+    Station.create date_created: Time.zone.now , 
+  			     event_location: 'Chicago', 
+  			     event_name: 'The best station', 
+  			     user_id: User.first.id
+  
+      Station.create date_created: Time.zone.now , 
+  			     event_location: 'Chicago', 
+  			     event_name: 'Chicago station', 
   			     user_id: User.last.id
   

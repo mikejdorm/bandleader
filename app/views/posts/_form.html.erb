@@ -2,6 +2,6 @@
   <%= f.hidden_field :station_id, :value => @station.id %>
   <%= f.hidden_field :user_id, :value => current_user.id	 %>
   <p>	
-    <%= f.text_field :content, :size => 150 %>
+    <%= f.text_field :content, :size => 200, :placeholder => "Post a message!" %>
   </p>
 <% end %>

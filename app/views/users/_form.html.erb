@@ -1,0 +1,23 @@
+<%= form_for(@user)  do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station.errors.count, "error") %> prohibited this station from being saved:</h2>
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.text_field :username, :placeholder => "Username" %>
+    </p>
+    <p>
+    <%= f.text_field :email, :placeholder => "Email" %>
+    </p>
+    	 <%= f.label "Change your picture" %>
+ 		 <%= f.file_field :avatar %>
+ 		 <br>
+  	<%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit :class => "btn btn-primary" %>
+<% end %>

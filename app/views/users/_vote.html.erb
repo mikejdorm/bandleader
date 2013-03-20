@@ -1,8 +1,7 @@
 <div> 
-<h3> voted on: 
-<% @song = Song.find_by_id(vote.song_id) %> 
+voted on: <% @song = Song.find_by_id(vote.song_id) %> 
 <%= song.title %> 
 <%= song.album %> 
 <%= song.artist %> 
-</div> 
+
 

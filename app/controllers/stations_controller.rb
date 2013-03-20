@@ -1,4 +1,7 @@
 class StationsController < ApplicationController
+
+before_filter :authorize
+
   # GET /stations
   # GET /stations.json
   def index
@@ -87,7 +90,6 @@ class StationsController < ApplicationController
   def destroy
     @station = Station.find(params[:id])
     @station.destroy
-
     respond_to do |format|
       format.html { redirect_to stations_url }
       format.json { head :no_content }

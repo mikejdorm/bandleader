@@ -1,5 +1,7 @@
 class ConnectionsController < ApplicationController
 
+before_filter :authorize
+
   def create
     @connection = Connection.new(params[:connection])
     check = Connection.find(:first, :conditions => ["user_id = ? AND station_id = ?", @connection.user_id, @connection.station_id ])

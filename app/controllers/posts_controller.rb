@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+before_filter :authorize
+
   # GET /posts
   # GET /posts.json
   def index

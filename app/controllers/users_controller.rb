@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
+
+  before_filter :authorize_user, :only => [:show, :edit, :update, :destroy]
+
+  def authorize_user
+    @user = User.find(params[:id])
+    if @user.id != session[:user_id]
+      redirect_to root_url
+    end
+  end
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -15,7 +24,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 	@activity = Array.new  
-	
+	@user_stations = Station.where("user_id = ?", @user.id).all
 	@user.connections.each do |connection| 
 		@activity.push( { :date => connection.created_at, :class => connection })
 	end
@@ -54,7 +63,6 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -70,9 +78,8 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if @user.save
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
