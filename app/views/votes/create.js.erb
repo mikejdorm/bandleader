@@ -1,2 +1,1 @@
-<% @songs = Station.find_by_id(@vote.station_id).songs.all %>
 $('#playlist').html('<%= j(render partial: "songs/song", collection: @songs ) %>');

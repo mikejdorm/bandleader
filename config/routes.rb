@@ -1,5 +1,13 @@
 Bandleader::Application.routes.draw do
  
+   
+  resources :sessions
+  resources :connections
+  resources :votes		
+  resources :users
+  resources :stations
+  
+  
   resources :posts
   root to: 'static_pages#home' 
   match '/help', to: 'static_pages#help'
@@ -11,13 +19,8 @@ Bandleader::Application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
   delete 'songs/:id', :to => 'songs#destroy'
   get 'songs/:id', :to => 'songs#show'
-  resources :sessions
-  resources :connections
-  resources :votes		
-  resources :users
-  resources :stations
+
   match 'upload' => 'songs#upload', :as => :upload
-  #match "songs#upload", :as => "upload"
   match 'songs#create' => 'songs#upload', :as => :upload
   match 'songs' => 'songs#upload', :as => :upload
   match 'station_next#id' => 'stations#next_song', :as => :next_song

@@ -464,3 +464,21 @@ float: right;
 #now_playing_art{
 	min-height: 300px;
 }
+
+#station_list h1{
+ color:black;
+ font-size: 40px;
+}
+
+#station_list h2{
+ color:black;
+}
+
+#station_cell{
+	border-top: $grayMediumLight solid;
+}
+
+
+#user_modal_cell img{
+	height: 50px;
+}

@@ -4,11 +4,11 @@
       $("#jquery_jplayer_1").jPlayer({
         ready: function() {
           $(this).jPlayer("setMedia", {
-            <% if @first_play.present? %>
-            	mp3: "<%= @first_play.link %>"
+            <% if @now_playing.present? %>
+            	mp3: "<%= @now_playing.link %>"
             <% elsif @first_play == nil && @station.songs.present? %> 
-            <% @first_play = @station.songs.first %> 
-                mp3: "<%= @first_play.link %>"
+            <% @now_playing = @station.songs.first %> 
+                mp3: "<%= @now_playing.link %>"
             <% end %>
           }).jPlayer("play");
           var click = document.ontouchstart === undefined ? 'click' : 'touchstart';
@@ -49,7 +49,7 @@
 		<div class="span12" id="hub_detail">  
 				<div class="row"> 	
 							<div class="span4" id="hub_det"  style=" border-left: solid; border-width: 5px;" >
-								<%= render :partial => 'now_playing', :locals => {:station => @station, :now_playing => @first_play} %>
+								<%= render :partial => 'now_playing', :locals => {:station => @station, :now_playing => @now_playing} %>
 							</div>
 							<div class="span4" id="song_queue">  
 								<%= render partial: "queue", object: @station %>

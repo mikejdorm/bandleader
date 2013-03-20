@@ -14,15 +14,20 @@ if Rails.env.development?
 	User.destroy_all
 end
 
-  User.create username: 'mikejdorm',
+  u1 =  User.new username: 'mikejdorm',
  			 email: 'mikejdorm@gmail.com',
   			password: 'password',
   			password_confirmation: 'password'
   
-    User.create username: 'mdorman',
+    u2 = User.new username: 'mdorman',
  			 email: 'mdorman@uchicago.edu',
   			password: 'password',
   			password_confirmation: 'password'
+  			no_avatar = File.join(Rails.root, "app/assets/images/no_avatar.jpg")
+  u1.avatar = File.open(no_avatar)	
+  u2.avatar = File.open(no_avatar)
+  u1.save
+  u2.save
   
     Station.create date_created: Time.zone.now , 
   			     event_location: 'Chicago', 

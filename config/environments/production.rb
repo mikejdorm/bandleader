@@ -70,8 +70,8 @@ config.paperclip_defaults = {
  :storage => :s3,
   :s3_credentials => {
     :bucket => 'bandleader_assets',
-    :access_key_id => 'AKIAI7SIP5TCVM4U52QQ',
-    :secret_access_key => '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'
+    :access_key_id => ENV['AWS_KEY_VALUE'],
+    :secret_access_key => ENV['AWS_SECRET_KEY']
   }
 }
 

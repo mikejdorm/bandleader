@@ -93,6 +93,17 @@ def sanitize_filename(file_name)
 		just_filename.sub(/[^\w\.\-]/,'_')
 end
 	
+def setSongInfo(info)
+	if info['image'][1]["content"] == nil
+		info = lastfm.artist.get_info(:artist => self.artist)
+	end
+	if(info['image'][1]["content"] != nil)
+		self.small_img_url = info['image'][1]["content"]
+	end
+	if(info['image'][3]["content"] != nil)
+		self.large_img_url = info['image'][3]["content"]
+	end
+end
 
 
 

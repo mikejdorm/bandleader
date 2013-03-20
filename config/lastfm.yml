@@ -1,11 +1,12 @@
 development:
-  api_key: 7a3265c5d611cb7a75c65d269593cd93
-  secret: 16173be5d466e200dcda3ff71b69322b
+  api_key:   ENV['LAST_FM_KEY']
+  secret:   ENV['LAST_FM_SECRET']
 
 test:
-  api_key: 7a3265c5d611cb7a75c65d269593cd93
-  secret: 16173be5d466e200dcda3ff71b69322b
+  api_key:   ENV['LAST_FM_KEY']
+  secret:   ENV['LAST_FM_SECRET']
   
 production:
-  api_key: 7a3265c5d611cb7a75c65d269593cd93
-  secret: 16173be5d466e200dcda3ff71b69322b
+  api_key:   ENV['LAST_FM_KEY']
+  secret:   ENV['LAST_FM_SECRET']
+  

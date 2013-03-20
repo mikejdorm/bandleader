@@ -1,4 +1,4 @@
 <% station = Station.find_by_id(post.station_id) %> 
 <% if station %>
-Posted "<%= post.content %>" to <%= Station.find_by_id(post.station_id).event_name %> 
+Posted "<%= post.content %>" to <%= link_to station.event_name, station%>
 <% end %> 

@@ -5,6 +5,7 @@
 			</div>
 			<div class="modal-body">
 		<% station.connections.each do |connection| %>
+			<div id="user_modal_cell" >
 			<% user = User.find_by_id(connection.user_id) %> 
 			<% if user.avatar %> 
 					<%= link_to image_tag(user.avatar), user %>
@@ -12,7 +13,7 @@
 					<%= link_to image_tag('no_avatar.jpg'), user %>
 			<% end %> 
 			<%= link_to user.username, user %> 
-			
+			</div> 
 		<% end %> 
 				</div>
 			<div class="modal-footer">
