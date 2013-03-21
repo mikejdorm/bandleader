@@ -3,10 +3,10 @@
 <% end %> 
 		   <div class="thumbnail" id="now_playing_art" >
 		   <% if station.songs.present? %>
-				<img src=<%= now_playing.large_img_url %>>
+				<%= image_tag(now_playing.large_img_url, :class=> 'media-object', :style => "height: 300px;") %>
 				<h3><%="#{now_playing.artist} - #{now_playing.title}" %> </h3>
-			<% else %>
-					<%= image_submit_tag('no_art.png', :class => 'media-object', :style => "height: 300px;") %>
+			<% else %> 
+				<%= image_submit_tag('no_art.png', :class => 'media-object', :style => "height: 300px;") %>
 			<% end %>
 		   </div>
 				<i class="icon-music"></i>	Songs (<%= station.songs.count %>)

@@ -16,13 +16,14 @@ before_filter :authorize
 
 def show
     @station = Station.find(params[:id])
-    @songs = @station.songs.all(:conditions => 'broadcast_time IS NULL')
+    @songs = Song.where("broadcast_time IS NULL AND station_id = ?", @station.id)
     @now_playing = @station.songs.all(:conditions => 'broadcast_time IS NULL', :order => 'broadcast_time ASC').first
-
-  if(@now_playing != nil)
+  	
+  	if(@now_playing != nil)
+  		puts("The artist is: #{@now_playing.artist}")
     	@song = Song.find_by_id(@now_playing.id)
     	@song.broadcast_time = Time.now
-    	@song.save
+   	 	@song.save
     end
 	@post = Post.new
 	@song = Song.new

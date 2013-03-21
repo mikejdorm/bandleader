@@ -1,5 +1,5 @@
 <div id="render_song_info"> </div>
 <ul class="media-list" id="playlist">
-	<% @songs = @station.songs.all[1..-1] %>
+	<% @songs = Song.where("broadcast_time IS NULL AND station_id = ?", @station.id) %>
 	<%= render partial: "songs/song", collection: @songs %>
 </ul>

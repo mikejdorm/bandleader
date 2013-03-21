@@ -9,7 +9,7 @@ before_filter :authorize
  def create
     @vote = Vote.new(params[:vote])
     station = Station.find_by_id(@vote.station_id)
-    @songs = station.songs.all(:conditions => 'broadcast_time IS NULL')
+    @songs = Song.where("broadcast_time IS NULL AND station_id = ?", station.id)
 	respond_to do |format|
           if @vote.save
           	  format.js 

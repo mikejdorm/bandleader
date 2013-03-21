@@ -6,8 +6,8 @@
           $(this).jPlayer("setMedia", {
             <% if @now_playing.present? %>
             	mp3: "<%= @now_playing.link %>"
-            <% elsif @first_play == nil && @station.songs.present? %> 
-            <% @now_playing = @station.songs.first %> 
+            <% elsif @now_playing == nil && @station.songs.present? %> 
+            <% @now_playing = @station.songs.last %> 
                 mp3: "<%= @now_playing.link %>"
             <% end %>
           }).jPlayer("play");
